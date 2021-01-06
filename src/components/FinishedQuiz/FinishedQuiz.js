@@ -1,6 +1,6 @@
 import classes from './FinishedQuiz.module.css'
 import Button from "../UI/Button/Button";
-
+import {Link} from    'react-router-dom';
 const FinishedQuiz = props => {
     const successCount = Object.keys(props.results).reduce((total, key) => {
         if (props.results[key] === 'success') {
@@ -37,9 +37,11 @@ const FinishedQuiz = props => {
                 onClick={props.onRetry}
                 type="primary"
             >Повторить</Button>
+            <Link to='/'>
             <Button
                 type="success"
             >Перейти в списк тестов</Button>
+            </Link>
         </div>
     )
 }

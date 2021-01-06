@@ -1,6 +1,7 @@
 import classes from './Drawer.module.css';
 import React from 'react';
 import BackDrop from "../../UI/BackDrop/BackDrop";
+import {NavLink} from "react-router-dom";
 
 const links = [1, 2, 3];
 
@@ -15,7 +16,12 @@ export default class Driver extends React.Component {
     return links.map((link,index)=>{
         return(
             <li key={index}>
-                <a > Link {link}</a>
+                <NavLink
+                    exact={this.props.linkList[index].exact}
+                    to={this.props.linkList[index].path}
+                    activeClassName={classes.active}
+                    onClick={this.props.onClose}
+                >  {this.props.linkList[index].name}</NavLink>
                </li>
         )
     })

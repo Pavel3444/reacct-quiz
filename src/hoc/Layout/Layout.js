@@ -4,7 +4,14 @@ import MenuToggle from "../../components/Navigation/MenuToggle/MenuToggle";
 import Drawer from '../../components/Navigation/Drawer/Drawer'
 export default class Layout extends React.Component {
     state = {
-        menu: false
+        menu: false,
+        links: [
+            {name: 'Список', path: '/', exect: true},
+            {name: 'Авторизация', path: '/auth', exect: false},
+            {name: 'Создать тест', path: '/quiz-creator', exect: false},
+            // {name: 'Quiz', path: '/quiz', exect: false},
+            ]
+
     }
 
 
@@ -25,6 +32,7 @@ export default class Layout extends React.Component {
                 <Drawer
                     isOpen={this.state.menu}
                     onClose={this.menuCloseHandler}
+                    linkList={this.state.links}
                 />
                 <MenuToggle
                     onToggle={this.toggleMenuHandler}
